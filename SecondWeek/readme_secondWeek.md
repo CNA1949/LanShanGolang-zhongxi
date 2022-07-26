@@ -514,7 +514,9 @@ type A struct{
   d string	
 }	
 /*
-内存布局：b_··|cccc|dddd|dddd|dddd|dddd	（下划线_为a的占位，但a不占用内存,但结构体A此处本身对齐值为系统默认对齐长度8（8<16(size:string)）的整数倍，即24）
+内存布局：b_··|cccc|dddd|dddd|dddd|dddd	
+下划线_为a的占位，a不占用内存，
+但结构体A此处本身对齐值为系统默认对齐长度8（8<16(size:string)）的整数倍，即24
 */
 ```
 
@@ -528,7 +530,9 @@ type A struct {
 	a struct{}
 }
 /*
-内存布局：dddd|dddd|dddd|dddd|b···|cccc|_···|····（下划线_为a的占位，但a不占用内存,但结构体A此处本身对齐值为系统默认对齐长度8的整数倍，即32，a之后需要再填充7个字节）
+内存布局：dddd|dddd|dddd|dddd|b···|cccc|_···|····
+下划线_为a的占位，a不占用内存，
+但结构体A此处本身对齐值为系统默认对齐长度8的整数倍，即32，a之后需要再填充7个字节
 */
 
 type A struct {
