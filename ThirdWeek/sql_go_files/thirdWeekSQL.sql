@@ -1,3 +1,4 @@
+// sql文件
 # 创建数据库
 DROP DATABASE IF EXISTS thirdWeek;
 CREATE DATABASE thirdWeek;
@@ -6,36 +7,36 @@ USE	thirdWeek;
 # 创建 仓库信息表
 DROP TABLE IF EXISTS storehouse;
 CREATE TABLE storehouse(
-	storeCode VARCHAR(255) NOT NULL COMMENT '仓库编码',
-	capacity INT(255)	NULL	COMMENT '仓库容量',
-	PRIMARY KEY(storeCode)
+                           storeCode VARCHAR(255) NOT NULL COMMENT '仓库编码',
+                           capacity INT(255)	NULL	COMMENT '仓库容量',
+                           PRIMARY KEY(storeCode)
 )ENGINE = INNODB CHARACTER SET = utf8mb4 COMMENT '仓库信息表';
 
 # 创建 服装表
 DROP TABLE IF EXISTS clothingInfo;
 CREATE TABLE clothingInfo(
-	clothingCode VARCHAR(255) NOT NULL COMMENT '服装编码',
-	size VARCHAR(30)	NULL COMMENT	'服装尺码',
-	price INT(255)	NULL	COMMENT '销售价格',
-	type VARCHAR(255)	NULL COMMENT	'服装类型',
-	PRIMARY KEY(clothingCode)
+                             clothingCode VARCHAR(255) NOT NULL COMMENT '服装编码',
+                             size VARCHAR(30)	NULL COMMENT	'服装尺码',
+                             price INT(255)	NULL	COMMENT '销售价格',
+                             clothingType VARCHAR(255)	NULL COMMENT	'服装类型',
+                             PRIMARY KEY(clothingCode)
 )ENGINE = INNODB CHARACTER SET = utf8mb4 COMMENT '服装表';
 
 # 创建 供应商表
 DROP TABLE IF EXISTS supplier;
 CREATE TABLE supplier(
-	supplierCode VARCHAR(255) NOT NULL COMMENT '供应商编码',
-	supplierName VARCHAR(255) NULL COMMENT '供应商名称',
-	PRIMARY KEY(supplierCode)
+                         supplierCode VARCHAR(255) NOT NULL COMMENT '供应商编码',
+                         supplierName VARCHAR(255) NULL COMMENT '供应商名称',
+                         PRIMARY KEY(supplierCode)
 )ENGINE = INNODB CHARACTER SET = utf8mb4 COMMENT '供应商表';
 
 # 创建 供应情况表
 DROP TABLE IF EXISTS supplySituation;
 CREATE TABLE supplySituation(
-	clothingCode VARCHAR(255) NOT NULL COMMENT '服装编码',
-	supplierCode VARCHAR(255) NOT NULL COMMENT '供应商编码',
-	quality VARCHAR(255) NULL COMMENT '服装质量',
-	PRIMARY KEY(clothingCode, supplierCode)
+                                clothingCode VARCHAR(255) NOT NULL COMMENT '服装编码',
+                                supplierCode VARCHAR(255) NOT NULL COMMENT '供应商编码',
+                                quality VARCHAR(255) NULL COMMENT '服装质量',
+                                PRIMARY KEY(clothingCode, supplierCode)
 )ENGINE = INNODB CHARACTER SET = utf8mb4 COMMENT '供应情况表';
 
 
