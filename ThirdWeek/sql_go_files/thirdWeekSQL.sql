@@ -1,8 +1,7 @@
-// sql文件
 # 创建数据库
-DROP DATABASE IF EXISTS thirdWeek;
-CREATE DATABASE thirdWeek;
-USE	thirdWeek;
+DROP DATABASE IF EXISTS thirdweek;
+CREATE DATABASE thirdweek;
+USE	thirdweek;
 
 # 创建 仓库信息表
 DROP TABLE IF EXISTS storehouse;
