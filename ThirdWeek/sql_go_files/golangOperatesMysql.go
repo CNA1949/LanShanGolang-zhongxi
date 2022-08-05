@@ -187,6 +187,11 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
+	defer func() {
+		if DB != nil {
+			DB.Close()
+		}
+	}()
 
 	//// 查询服装尺码为'S'且销售价格在100以下的服装信息
 	//err = SelectData("clothing_info", "SELECT * FROM clothing_info WHERE size='S' and price<100")
