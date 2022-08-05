@@ -43,10 +43,10 @@ CREATE TABLE supply_situation(
 INSERT INTO storehouse VALUES('CK1001',9999),('CK1002',5000),('CK1003',8000),('CK1004',10000),('CK1005',7000);
 
 # 向服装表中添加数据
-INSERT INTO clothing_info VALUES('FZ00001','S',110,'A'),('FZ00002','L',95,'B'),('FZ00003','M',120,'A'),('FZ00004','S',90,'B'),('FZ00005','S',85,'C');
+INSERT INTO clothing_info VALUES('AFZ00001','S',110,'A'),('BFZ00002','L',95,'B'),('AFZ00003','M',120,'A'),('BFZ00004','S',90,'B'),('CFZ00005','S',85,'C');
 
 # 向供应商表中添加数据
 INSERT INTO supplier VALUES('GYS1001','供应商A'),('GYS1002','供应商B'),('GYS1003','供应商C'),('GYS1004','供应商D'),('GYS1005','供应商E');
 
 # 向供应情况表中添加数据
-INSERT INTO supply_situation VALUES('FZ00001','GYS1001','合格'),('FZ00002','GYS1002','不合格'),('FZ00003','GYS1003','合格'),('FZ00004','GYS1004','合格'),('FZ00005','GYS1005','不合格');
+INSERT INTO supply_situation VALUES('AFZ00001','GYS1001','合格'),('BFZ00002','GYS1002','不合格'),('AFZ00003','GYS1003','合格'),('BFZ00004','GYS1004','合格'),('CFZ00005','GYS1005','不合格');
