@@ -550,6 +550,71 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
+	defer func() {
+		if DB != nil {
+			DB.Close()
+		}
+	}()
+
+	//// 查询服装尺码为'S'且销售价格在100以下的服装信息
+	//err = SelectData("clothing_info", "SELECT * FROM clothing_info WHERE size='S' and price<100")
+	//if err != nil {
+	//	fmt.Println(err)
+	//}
+	//
+	//// 查询仓库容量最大的仓库信息。
+	//err = SelectData("storehouse", "SELECT * FROM storehouse WHERE capacity = (SELECT MAX(capacity) FROM storehouse)")
+	//if err != nil {
+	//	fmt.Println(err)
+	//}
+	//
+	//// 查询服装编码以‘A’开始开头的服装
+	//err = SelectData("clothing_info", "SELECT * FROM clothing_info WHERE clothing_code LIKE 'A%'")
+	//if err != nil {
+	//	fmt.Println(err)
+	//}
+	//
+	//// 查询服装质量等级有不合格的供应商信息。
+	//err = SelectData("supplier", "SELECT * FROM supplier WHERE supplier_code IN (SELECT supplier_code FROM supply_situation WHERE quality = '不合格')")
+	//if err != nil {
+	//	fmt.Println(err)
+	//}
+	//
+	//// 把服装尺寸为'S'的服装的销售价格均在原来基础上提高10%。
+	//err = UpdateData("UPDATE clothing_info SET price=price*(1+0.1) WHERE size='S'")
+	//if err != nil {
+	//	fmt.Println(err)
+	//}
+	//// 删除所有服装质量等级不合格的供应情况。
+	//err = DeleteData("DELETE FROM supply_situation WHERE quality='不合格'")
+	//if err != nil {
+	//	fmt.Println(err)
+	//}
+
+	// 向每张表插入一条记录。
+	// # 向storehouse表中插入一条数据
+	//err = InsertData("INSERT INTO storehouse (store_code,capacity) VALUES ('CK1006',6000)")
+	//if err != nil {
+	//	fmt.Println(err)
+	//}
+
+	//// # 向clothing_info表中插入一条数据
+	//err = InsertData("INSERT INTO clothing_info (clothing_code,size,price,clothing_type) VALUES ('CFZ00006','M',90,'C')")
+	//if err != nil {
+	//	fmt.Println(err)
+	//}
+
+	//// # 向supplier表中插入一条数据
+	//err = InsertData("INSERT INTO supplier (supplier_code,supplier_name) VALUES ('GYS1006','供应商F')")
+	//if err != nil {
+	//	fmt.Println(err)
+	//}
+
+	//// # 向supply_situation表中插入一条数据
+	//err = InsertData("INSERT INTO supply_situation (clothing_code,supplier_code,quality) VALUES ('CFZ00006','GYS1006','不合格')")
+	//if err != nil {
+	//	fmt.Println(err)
+	//}
 }
 
 ```
