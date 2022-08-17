@@ -67,18 +67,18 @@ func InsertData(sqlStr string) error {
 	if DB == nil {
 		return errors.New("数据库未连接")
 	}
-	transactions, err := DB.Begin() //开启事务
+	tx, err := DB.Begin() //开启事务
 	if err != nil {
-		transactions.Rollback() // 回滚
+		tx.Rollback() // 回滚
 		return errors.New(fmt.Sprintf("开启事务失败%v", err))
 	}
 
-	_, err = DB.Exec(sqlStr)
+	_, err = tx.Exec(sqlStr)
 	if err != nil {
-		transactions.Rollback() // 回滚
+		tx.Rollback() // 回滚
 		return errors.New(fmt.Sprintf("插入失败：%v", err))
 	}
-	transactions.Commit() //提交事务
+	tx.Commit() //提交事务
 	return nil
 }
 
@@ -145,18 +145,18 @@ func UpdateData(sqlStr string) error {
 	if DB == nil {
 		return errors.New("数据库未连接")
 	}
-	transactions, err := DB.Begin() //开启事务
+	tx, err := DB.Begin() //开启事务
 	if err != nil {
-		transactions.Rollback() // 回滚
+		tx.Rollback() // 回滚
 		return errors.New(fmt.Sprintf("开启事务失败%v", err))
 	}
 
-	_, err = DB.Exec(sqlStr)
+	_, err = tx.Exec(sqlStr)
 	if err != nil {
-		transactions.Rollback() // 回滚
+		tx.Rollback() // 回滚
 		return errors.New(fmt.Sprintf("更新失败：%v", err))
 	}
-	transactions.Commit() //提交事务
+	tx.Commit() //提交事务
 	return nil
 }
 
@@ -165,18 +165,18 @@ func DeleteData(sqlStr string) error {
 	if DB == nil {
 		return errors.New("数据库未连接")
 	}
-	transactions, err := DB.Begin() //开启事务
+	tx, err := DB.Begin() //开启事务
 	if err != nil {
-		transactions.Rollback() // 回滚
+		tx.Rollback() // 回滚
 		return errors.New(fmt.Sprintf("开启事务失败%v", err))
 	}
 
-	_, err = DB.Exec(sqlStr)
+	_, err = tx.Exec(sqlStr)
 	if err != nil {
-		transactions.Rollback() // 回滚
+		tx.Rollback() // 回滚
 		return errors.New(fmt.Sprintf("更新失败：%v", err))
 	}
-	transactions.Commit() //提交事务
+	tx.Commit() //提交事务
 
 	return nil
 }
@@ -235,8 +235,8 @@ func main() {
 	//	fmt.Println(err)
 	//}
 
-	//// # 向clothing_info表中插入一条数据
-	//err = InsertData("INSERT INTO clothing_info (clothing_code,size,price,clothing_type) VALUES ('CFZ00006','M',90,'C')")
+	// # 向clothing_info表中插入一条数据
+	//err = InsertData("INSERT INTO clothing_info (clothing_code,size,price,clothing_type) VALUES ('CFZ00007','M',90,'C')")
 	//if err != nil {
 	//	fmt.Println(err)
 	//}
